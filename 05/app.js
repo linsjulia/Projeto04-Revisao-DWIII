@@ -1,5 +1,5 @@
 
-import fs from 'fs';
+const fs = require('fs/promises');
 
 function currentDate(){
     const now = new Date();
@@ -14,17 +14,13 @@ async function exportTextFile(){
 
     const text = `${header}\n\n${students}`;
     
-    fs.writeFile('export_relatorio.txt', text, 'utf-8', (error) => {
-        if(error){
-            return console.error('Erro ao gerar o arquivo: ', error.message);
-        }
-        console.log("Relatório exportado com sucesso!")
-    });
+    fs.writeFile('export_relatorio.txt', text, 'utf-8')
+    console.log("Relatório exportado com sucesso!");
 }
 
 async function getData(){
     const pathFile = "./estudantes.csv";
-    const file = await fs.promises.readFile(pathFile, 'utf-8');
+    const file = await fs.readFile(pathFile, 'utf-8');
 
     let regex = /[^\n]+,\d+/gmi;
     const arrayResults = [];
