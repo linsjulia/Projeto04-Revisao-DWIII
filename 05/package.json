@@ -1,0 +1,11 @@
+{
+  "name": "05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "export": "node app.js"
+  },
+  "keywords": [],
+  "type": "commonjs"
+}
